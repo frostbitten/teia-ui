@@ -31,6 +31,7 @@ const App = () => {
         <Route path="/*" element={<Search />} />
 
         <Route path="/friends/:id" element={<Friends />} />
+        <Route path="/tz/:id" element={<Display />} />
         <Route path="/tz/:id/:collection?" element={<Display />} />
         <Route path="/kt/:id" element={<CollabDisplay />} />
         <Route path="/collab/:name" element={<CollabDisplay />} />
@@ -39,7 +40,7 @@ const App = () => {
         <Route path="/faq" element={<FAQ />} />
         <Route path="/sync" element={<Sync />} />
         <Route path="/mint" element={<Mint />} />
-        <Route path="/collaborate/:action?" element={<Collaborate />} />
+        <Route path="/collaborate" element={<Collaborate />} />
         <Route path="/objkt/:id" element={<ObjktDisplay />} />
         <Route path="/galleries" element={<Galleries />} />
         <Route path="/gallery/:id" element={<GalleryDetail />} />

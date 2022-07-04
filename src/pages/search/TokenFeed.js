@@ -70,7 +70,7 @@ function TokenFeed({
     )
   }
 
-  // TODO: remove tokens from blocked wallets
+  // TODO: remove tokens from blocked wallets and restricted objkts
   let tokens = extractTokensFromResponse(data, {
     postProcessTokens,
     resultsPath,

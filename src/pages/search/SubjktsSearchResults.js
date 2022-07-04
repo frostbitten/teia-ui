@@ -1,4 +1,5 @@
 import useSWR from 'swr'
+import _ from 'lodash'
 import { gql } from 'graphql-request'
 import { request } from 'graphql-request'
 import { useSearchParams, Link } from 'react-router-dom'
@@ -8,7 +9,7 @@ function SubjktsSearchResults() {
   const [searchParams] = useSearchParams()
   const searchTerm = searchParams.get('term') || ''
 
-  const { data, error } = useSWR(
+  const { data } = useSWR(
     ['subjkts-search', searchTerm],
     (ns, term) =>
       request(
@@ -37,13 +38,18 @@ function SubjktsSearchResults() {
     }
   )
 
-  if (error || !data || !data.holder.length) {
+  const holders = _.uniqBy(
+    _.get(data, 'holder') || [],
+    ({ name }) => name
+  ).filter(({ name }) => name)
+
+  if (!holders.length) {
     return null
   }
 
   return (
     <div style={{ maxHeight: '200px', overflow: 'scroll' }}>
-      {data.holder.map(({ name, metadata }) => (
+      {holders.map(({ name, metadata }) => (
         <div key={name} style={{ marginTop: '10px' }}>
           <Link to={`/${name}`}>{name}</Link> {metadata.description}
         </div>

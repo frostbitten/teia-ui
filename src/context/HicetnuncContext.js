@@ -28,7 +28,6 @@ import {
   SWAP_TYPE_TEIA,
   SWAP_TYPE_HEN,
   BURN_ADDRESS,
-  getLogoList,
 } from '@constants'
 const { NetworkType } = require('@airgap/beacon-sdk')
 var ls = require('local-storage')
@@ -387,13 +386,6 @@ class HicetnuncContextProviderClass extends Component {
       fullscreen: false,
       setFullscreen: (fullscreen) => this.setState({ fullscreen }),
 
-      logo: '',
-      setLogo: () => {
-        const logo_list = getLogoList()
-        this.setState({
-          logo: logo_list[Math.floor(Math.random() * logo_list.length)],
-        })
-      },
       // theme, DO NO CHANGE!
       theme: 'unset',
 
