@@ -22,7 +22,7 @@ import {
   HtmlSvgFeed,
   GifFeed,
 } from './MimeTypeFeed'
-import { TopSales1DFeed, TopSales1WFeed, TopSales1MFeed } from './TopSalesFeed'
+import TagFeed from './TagFeed'
 import SearchFeed from './SearchFeed'
 
 import './style.css'
@@ -81,6 +81,7 @@ export function Search() {
             />
             <div style={{ marginTop: '15px' }}>
               <FilterLink to="/ukraine">🇺🇦 ukraine</FilterLink>
+              <FilterLink to="/tezospride">🏳️‍🌈 tezospride</FilterLink>
               <FilterLink to="/random">random</FilterLink>
               <FilterLink to="/glb">glb</FilterLink>
               <FilterLink to="/music">music</FilterLink>
@@ -89,9 +90,6 @@ export function Search() {
               <FilterLink to="/gif">gif</FilterLink>
               <FilterLink to="/newobjkts">new OBJKTs</FilterLink>
               <FilterLink to="/">recent sales</FilterLink>
-              <FilterLink to="/1D">1D</FilterLink>
-              <FilterLink to="/1W">1W</FilterLink>
-              <FilterLink to="/1M">1M</FilterLink>
             </div>
             <Routes>
               <Route path="/search" element={<SubjktsSearchResults />} />
@@ -102,6 +100,10 @@ export function Search() {
           <Routes>
             <Route path="/">
               <Route index element={<RecentSalesFeed />} />
+              <Route
+                path="tezospride"
+                element={<TagFeed tag="tezospride" namespace="tezospride" />}
+              />
               <Route path="ukraine" element={<UkraineFeed />} />
               <Route path="random" element={<RandomFeed />} />
               <Route path="newobjkts" element={<NewObjktsFeed />} />
@@ -110,9 +112,6 @@ export function Search() {
               <Route path="video" element={<VideoFeed />} />
               <Route path="html-svg" element={<HtmlSvgFeed />} />
               <Route path="gif" element={<GifFeed />} />
-              <Route path="1D" element={<TopSales1DFeed />} />
-              <Route path="1W" element={<TopSales1WFeed />} />
-              <Route path="1M" element={<TopSales1MFeed />} />
               <Route path="search" element={<SearchFeed />} />
             </Route>
           </Routes>
