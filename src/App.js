@@ -31,9 +31,9 @@ const App = () => {
         <Route path="/*" element={<Search />} />
 
         <Route path="/friends/:id" element={<Friends />} />
-        <Route path="/tz/:id" element={<Display />} />
-        <Route path="/tz/:id/:collection?" element={<Display />} />
-        <Route path="/kt/:id" element={<CollabDisplay />} />
+        <Route path="/tz/:address" element={<Display />} />
+        <Route path="/tz/:address/:collection?" element={<Display />} />
+        <Route path="/kt/:address" element={<CollabDisplay />} />
         <Route path="/collab/:name" element={<CollabDisplay />} />
         <Route path="/about" element={<About />} />
         <Route path="/terms" element={<Terms />} />
